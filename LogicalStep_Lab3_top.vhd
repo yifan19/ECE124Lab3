@@ -49,26 +49,60 @@ component segment7_mux port (
 end component;
 	
 ------------------------------------------------------------------
-signal input1 : std_logic_vector(3 downto 0);
-signal input2 : std_logic_vector(3 downto 0);
+signal Current_Temp : std_logic_vector(3 downto 0); -- represents the current Temp
+signal Desired_Temp : std_logic_vector(3 downto 0); -- represents the desired temp
 signal GT, EQ, LT : std_logic;
-signal sevenseg_input1, sevenseg_input2 : std_logic_vector(6 downto 0);
+signal sevenseg_Current_Temp, sevenseg_Desired_Temp : std_logic_vector(6 downto 0);
 
+signal FURNACE_ON : std_logic; -- 1 if on
+signal SYSTEM_AT_TEMP : std_logic;
+signal AC_ON : std_logic;
+signal BLOWER_ON: std_logic;
+
+signal DoorsWindowsOpen: std_logic_vector(2 downto 0); 
+--Fdoor->pb2 window->pb1 Bdoor ->pb0
+--Fdoor-> led6 window->led5, Bdoor -> led4
+
+
+signal isRoomIsolated: std_logic;
 begin
 
-input1 <= sw(7 downto 4);
-input2 <= sw(3 downto 0);
-
---GT <=leds(2);
---EQ <=leds(1);
---LT <=leds(0);
+Current_Temp <= sw(7 downto 4); -- left side input
+Desired_Temp <= sw(3 downto 0); -- right side input
 
 
-INST1: fourbitcomparator port map(input1(0),input1(1),input1(2),input1(3), input2(0),input2(1),input2(2),input2(3),leds(2),leds(1),leds(0));
-INST2: SevenSegment port map(input1, sevenseg_input1);
-INST3: sevenSegment port map(input2, sevenseg_input2);
 
-INST4: segment7_mux port map (clkin_50	, sevenseg_input1, sevenseg_input2, seg7_data, seg7_char1, seg7_char2);
+
+
+---------------- comparing Current_Temp to Desired_Temp -----------------------------
+	INST1: fourbitcomparator port map(Current_Temp(0),Current_Temp(1),Current_Temp(2),Current_Temp(3), Desired_Temp(0),Desired_Temp(1),Desired_Temp(2),Desired_Temp(3),
+	GT,EQ,LT);
+
+
+------------------DISPLAYING THE TEMPS--------------------
+	INST2: SevenSegment port map(Current_Temp, sevenseg_Current_Temp);
+	INST3: sevenSegment port map(Desired_Temp, sevenseg_Desired_Temp);
+	INST4: segment7_mux port map (clkin_50	, sevenseg_Current_Temp, sevenseg_Desired_Temp, seg7_data, seg7_char1, seg7_char2);
+------------------END OF DISPLAYING-----------------------
+
+		
+	isRoomIsolated <= not DoorsWindowsOpen(2) and not DoorsWindowsOpen(1) and not DoorsWindowsOpen(0);
+	
+	DoorsWindowsOpen <= not ( pb (2 downto 0)) ;
+	leds(6 downto 4) <= DoorsWindowsOpen;
+
+	System_AT_TEMP <= EQ; -- if temp equal
+	leds(1) <= SYSTEM_AT_TEMP; -- led1 will show if system is at temp;
+
+	FURNACE_ON <= GT and isRoomIsolated;
+	leds(0) <= FURNACE_ON;
+
+	AC_ON <= LT and isRoomIsolated;
+	leds(2) <= AC_ON;
+	
+	BlOWER_ON <= AC_ON or FURNACE_ON;
+	leds(3) <= BLOWER_ON;
+	
 
 
 end Energy_Monitor;

@@ -16,6 +16,22 @@
 					"strict" : false
 				},
 				{
+					"name" : "leds[3]",
+					"strict" : false
+				},
+				{
+					"name" : "leds[4]",
+					"strict" : false
+				},
+				{
+					"name" : "leds[5]",
+					"strict" : false
+				},
+				{
+					"name" : "leds[6]",
+					"strict" : false
+				},
+				{
 					"name" : "seg7_data[0]",
 					"strict" : false
 				},
@@ -49,6 +65,18 @@
 				},
 				{
 					"name" : "seg7_char2",
+					"strict" : false
+				},
+				{
+					"name" : "pb[0]",
+					"strict" : false
+				},
+				{
+					"name" : "pb[1]",
+					"strict" : false
+				},
+				{
+					"name" : "pb[2]",
 					"strict" : false
 				},
 				{
