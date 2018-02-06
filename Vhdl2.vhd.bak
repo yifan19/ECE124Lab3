@@ -1,0 +1,41 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+
+entity FourBitComparator is port (
+	
+	bitA0, bitA1, bitA2, bitA3, bitB0, bitB1, bitB2, bitB3 : in std_logic;
+	
+	gt	: out std_logic;
+	et	: out std_logic;
+	lt	: out std_logic
+
+	);
+	
+end FourBitComparatpr;
+
+architecture Behavioural of FOurBitComparator is
+
+component SingleBitComparator port(
+	bit1	: in std_logic;
+	bit2	: in std_logic;
+	
+	gt	: out std_logic;
+	et	: out std_logic;
+	lt	: out std_logic
+);
+
+end component;
+
+signal A3LTB3, A3GTB3, A2EQB2 A2LTB2, A2GTB2, A2EQB2 A2LTB2, A1GTB1, A1EQB1 A0LTB0, A0GTB0, A0EQB0 : std_logic;
+signal ALTB, AETB,
+
+Begin
+
+INST1: SingleBitComparator port map(bitA0, bitB0, A0GTB0,A0EQB0, A0LTB0);
+INST2: SingleBitComparator port map(bitA1, bitB1, A1GTB1,A1EQB1, A1LTB1);
+INST3: SingleBitComparator port map(bitA2, bitB2, A2GTB2,A2EQB2, A2LTB2);
+INST4: SingleBitComparator port map(bitA3, bitB3, A3GTB3,A3EQB3, A3LTB3); 
+
+end Behavioural;
