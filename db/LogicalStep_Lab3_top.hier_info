@@ -1,11 +1,8 @@
 |LogicalStep_Lab3_top
 clkin_50 => segment7_mux:INST4.clk
-pb[0] => isRoomIsolated.IN1
-pb[0] => leds[4].DATAIN
-pb[1] => isRoomIsolated.IN0
-pb[1] => leds[5].DATAIN
-pb[2] => isRoomIsolated.IN1
-pb[2] => leds[6].DATAIN
+pb[0] => EnergyControl:INST5.DoorWindowOpenControl[0]
+pb[1] => EnergyControl:INST5.DoorWindowOpenControl[1]
+pb[2] => EnergyControl:INST5.DoorWindowOpenControl[2]
 pb[3] => ~NO_FANOUT~
 sw[0] => fourbitcomparator:INST1.bitB0
 sw[0] => SevenSegment:INST3.hex[0]
@@ -23,13 +20,13 @@ sw[6] => fourbitcomparator:INST1.bitA2
 sw[6] => SevenSegment:INST2.hex[2]
 sw[7] => fourbitcomparator:INST1.bitA3
 sw[7] => SevenSegment:INST2.hex[3]
-leds[0] <= FURNACE_ON.DB_MAX_OUTPUT_PORT_TYPE
-leds[1] <= fourbitcomparator:INST1.AEQB
-leds[2] <= AC_ON.DB_MAX_OUTPUT_PORT_TYPE
-leds[3] <= BLOWER_ON.DB_MAX_OUTPUT_PORT_TYPE
-leds[4] <= pb[0].DB_MAX_OUTPUT_PORT_TYPE
-leds[5] <= pb[1].DB_MAX_OUTPUT_PORT_TYPE
-leds[6] <= pb[2].DB_MAX_OUTPUT_PORT_TYPE
+leds[0] <= EnergyControl:INST5.FurnaceON
+leds[1] <= EnergyControl:INST5.SystemAtTemp
+leds[2] <= EnergyControl:INST5.ACON
+leds[3] <= EnergyControl:INST5.BlowerON
+leds[4] <= EnergyControl:INST5.DoorWindowOpenOutput[0]
+leds[5] <= EnergyControl:INST5.DoorWindowOpenOutput[1]
+leds[6] <= EnergyControl:INST5.DoorWindowOpenOutput[2]
 leds[7] <= <GND>
 seg7_data[0] <= segment7_mux:INST4.DOUT[0]
 seg7_data[1] <= segment7_mux:INST4.DOUT[1]
@@ -215,5 +212,26 @@ DOUT[5] <= DOUT[5].DB_MAX_OUTPUT_PORT_TYPE
 DOUT[6] <= DOUT[6].DB_MAX_OUTPUT_PORT_TYPE
 DIG2 <= \clk_proc:COUNT[10].DB_MAX_OUTPUT_PORT_TYPE
 DIG1 <= \clk_proc:COUNT[10].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LogicalStep_Lab3_top|EnergyControl:INST5
+CurrentGreater => BlowerON.IN0
+CurrentGreater => ACON.IN1
+CurrentEqual => SystemAtTemp.DATAIN
+CurrentSmaller => BlowerON.IN1
+CurrentSmaller => FurnaceON.IN1
+DoorWindowOpenControl[0] => isolatedSystem.IN0
+DoorWindowOpenControl[0] => DoorWindowOpenOutput[0].DATAIN
+DoorWindowOpenControl[1] => isolatedSystem.IN1
+DoorWindowOpenControl[1] => DoorWindowOpenOutput[1].DATAIN
+DoorWindowOpenControl[2] => isolatedSystem.IN1
+DoorWindowOpenControl[2] => DoorWindowOpenOutput[2].DATAIN
+FurnaceON <= FurnaceON.DB_MAX_OUTPUT_PORT_TYPE
+SystemAtTemp <= CurrentEqual.DB_MAX_OUTPUT_PORT_TYPE
+ACON <= ACON.DB_MAX_OUTPUT_PORT_TYPE
+BlowerON <= BlowerON.DB_MAX_OUTPUT_PORT_TYPE
+DoorWindowOpenOutput[0] <= DoorWindowOpenControl[0].DB_MAX_OUTPUT_PORT_TYPE
+DoorWindowOpenOutput[1] <= DoorWindowOpenControl[1].DB_MAX_OUTPUT_PORT_TYPE
+DoorWindowOpenOutput[2] <= DoorWindowOpenControl[2].DB_MAX_OUTPUT_PORT_TYPE
 
 

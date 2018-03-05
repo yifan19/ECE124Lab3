@@ -1,5 +1,5 @@
 Analysis & Synthesis report for LogicalStep_Lab3_top
-Tue Feb 06 12:25:45 2018
+Sun Mar 04 14:55:45 2018
 Quartus Prime Version 15.1.0 Build 185 10/21/2015 SJ Standard Edition
 
 
@@ -47,7 +47,7 @@ agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Feb 06 12:25:45 2018           ;
+; Analysis & Synthesis Status        ; Successful - Sun Mar 04 14:55:44 2018           ;
 ; Quartus Prime Version              ; 15.1.0 Build 185 10/21/2015 SJ Standard Edition ;
 ; Revision Name                      ; LogicalStep_Lab3_top                            ;
 ; Top-level Entity Name              ; LogicalStep_Lab3_top                            ;
@@ -180,6 +180,7 @@ agreement for further details.
 ; SevenSegment.vhd                 ; yes             ; User VHDL File  ; N:/ECE124Lab3/SevenSegment.vhd         ;         ;
 ; SingleBitComparator.vhd          ; yes             ; User VHDL File  ; N:/ECE124Lab3/SingleBitComparator.vhd  ;         ;
 ; fourbitcomparator.vhd            ; yes             ; User VHDL File  ; N:/ECE124Lab3/fourbitcomparator.vhd    ;         ;
+; EnergyControl.vhd                ; yes             ; User VHDL File  ; N:/ECE124Lab3/EnergyControl.vhd        ;         ;
 +----------------------------------+-----------------+-----------------+----------------------------------------+---------+
 
 
@@ -220,7 +221,8 @@ agreement for further details.
 +------------------------------+-------------------+--------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------+--------------+
 ; Compilation Hierarchy Node   ; LC Combinationals ; LC Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                           ; Library Name ;
 +------------------------------+-------------------+--------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------+--------------+
-; |LogicalStep_Lab3_top        ; 42 (4)            ; 11 (0)       ; 0           ; 0          ; 0            ; 0       ; 0         ; 30   ; 0            ; 0          ; |LogicalStep_Lab3_top                         ; work         ;
+; |LogicalStep_Lab3_top        ; 42 (0)            ; 11 (0)       ; 0           ; 0          ; 0            ; 0       ; 0         ; 30   ; 0            ; 0          ; |LogicalStep_Lab3_top                         ; work         ;
+;    |EnergyControl:INST5|     ; 4 (4)             ; 0 (0)        ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |LogicalStep_Lab3_top|EnergyControl:INST5     ; work         ;
 ;    |FourBitComparator:INST1| ; 6 (6)             ; 0 (0)        ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |LogicalStep_Lab3_top|FourBitComparator:INST1 ; work         ;
 ;    |SevenSegment:INST2|      ; 7 (7)             ; 0 (0)        ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |LogicalStep_Lab3_top|SevenSegment:INST2      ; work         ;
 ;    |SevenSegment:INST3|      ; 7 (7)             ; 0 (0)        ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |LogicalStep_Lab3_top|SevenSegment:INST3      ; work         ;
@@ -320,7 +322,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 15.1.0 Build 185 10/21/2015 SJ Standard Edition
-    Info: Processing started: Tue Feb 06 12:25:31 2018
+    Info: Processing started: Sun Mar 04 14:55:30 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off LogicalStep_Lab3 -c LogicalStep_Lab3_top
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file logicalstep_lab3_top.vhd
@@ -339,16 +341,20 @@ Warning (12019): Can't analyze file -- file Vhdl2.vhd is missing
 Info (12021): Found 2 design units, including 1 entities, in source file fourbitcomparator.vhd
     Info (12022): Found design unit 1: FOurBitComparator-Behavioural File: N:/ECE124Lab3/fourbitcomparator.vhd Line: 18
     Info (12023): Found entity 1: FourBitComparator File: N:/ECE124Lab3/fourbitcomparator.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file energycontrol.vhd
+    Info (12022): Found design unit 1: EnergyControl-Behaviour File: N:/ECE124Lab3/EnergyControl.vhd Line: 20
+    Info (12023): Found entity 1: EnergyControl File: N:/ECE124Lab3/EnergyControl.vhd Line: 6
 Info (12127): Elaborating entity "LogicalStep_Lab3_top" for the top level hierarchy
 Warning (10873): Using initial value X (don't care) for net "leds[7]" at LogicalStep_Lab3_top.vhd(10) File: N:/ECE124Lab3/LogicalStep_Lab3_top.vhd Line: 10
-Info (12128): Elaborating entity "FourBitComparator" for hierarchy "FourBitComparator:INST1" File: N:/ECE124Lab3/LogicalStep_Lab3_top.vhd Line: 78
+Info (12128): Elaborating entity "FourBitComparator" for hierarchy "FourBitComparator:INST1" File: N:/ECE124Lab3/LogicalStep_Lab3_top.vhd Line: 81
 Warning (10036): Verilog HDL or VHDL warning at fourbitcomparator.vhd(31): object "A3LTB3" assigned a value but never read File: N:/ECE124Lab3/fourbitcomparator.vhd Line: 31
 Warning (10036): Verilog HDL or VHDL warning at fourbitcomparator.vhd(31): object "A2LTB2" assigned a value but never read File: N:/ECE124Lab3/fourbitcomparator.vhd Line: 31
 Warning (10036): Verilog HDL or VHDL warning at fourbitcomparator.vhd(31): object "A1LTB1" assigned a value but never read File: N:/ECE124Lab3/fourbitcomparator.vhd Line: 31
 Warning (10036): Verilog HDL or VHDL warning at fourbitcomparator.vhd(31): object "A0LTB0" assigned a value but never read File: N:/ECE124Lab3/fourbitcomparator.vhd Line: 31
 Info (12128): Elaborating entity "SingleBitComparator" for hierarchy "FourBitComparator:INST1|SingleBitComparator:INST1" File: N:/ECE124Lab3/fourbitcomparator.vhd Line: 37
-Info (12128): Elaborating entity "SevenSegment" for hierarchy "SevenSegment:INST2" File: N:/ECE124Lab3/LogicalStep_Lab3_top.vhd Line: 83
-Info (12128): Elaborating entity "segment7_mux" for hierarchy "segment7_mux:INST4" File: N:/ECE124Lab3/LogicalStep_Lab3_top.vhd Line: 85
+Info (12128): Elaborating entity "SevenSegment" for hierarchy "SevenSegment:INST2" File: N:/ECE124Lab3/LogicalStep_Lab3_top.vhd Line: 88
+Info (12128): Elaborating entity "segment7_mux" for hierarchy "segment7_mux:INST4" File: N:/ECE124Lab3/LogicalStep_Lab3_top.vhd Line: 90
+Info (12128): Elaborating entity "EnergyControl" for hierarchy "EnergyControl:INST5" File: N:/ECE124Lab3/LogicalStep_Lab3_top.vhd Line: 94
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "leds[7]" is stuck at GND File: N:/ECE124Lab3/LogicalStep_Lab3_top.vhd Line: 10
 Info (286030): Timing-Driven Synthesis is running
@@ -361,9 +367,9 @@ Info (21057): Implemented 72 device resources after synthesis - the final resour
     Info (21059): Implemented 17 output pins
     Info (21061): Implemented 42 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 10 warnings
-    Info: Peak virtual memory: 856 megabytes
-    Info: Processing ended: Tue Feb 06 12:25:45 2018
-    Info: Elapsed time: 00:00:14
-    Info: Total CPU time (on all processors): 00:00:21
+    Info: Peak virtual memory: 855 megabytes
+    Info: Processing ended: Sun Mar 04 14:55:45 2018
+    Info: Elapsed time: 00:00:15
+    Info: Total CPU time (on all processors): 00:00:23
 
 

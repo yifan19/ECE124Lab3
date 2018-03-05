@@ -39,10 +39,18 @@ Begin
 	INST3: SingleBitComparator port map(bitA2, bitB2, A2GTB2,A2EQB2, A2LTB2);
 	INST4: SingleBitComparator port map(bitA3, bitB3, A3GTB3,A3EQB3, A3LTB3);
 
-
+	
+	-- equal if all 4 bits compare to equal
 	AEQB_signal <= A3EQB3 and A2EQB2 and A1EQB1 and A0EQB0;
+	
+	-- greater if all bits compared early are equal and this bit comparing is bigger
 	AGTB_signal <= (A3GTB3) or (A3EQB3 and A2GTB2) or (A3EQB3 and A2EQB2 AND A1GTB1) OR (A3EQB3 AND A2EQB2 AND A1EQB1 AND A0GTB0);
+	
+	--else....
 	ALTB <= not(AEQB_signal OR AGTB_signal);
+	
+	
+	-- just setting the other signal to the real output
 	AEQB <= AEQB_signal;
 	AGTB <= AGTB_signal;
 

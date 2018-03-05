@@ -1,5 +1,5 @@
 PowerPlay Power Analyzer report for LogicalStep_Lab3_top
-Tue Feb 06 12:26:12 2018
+Sun Mar 04 14:56:10 2018
 Quartus Prime Version 15.1.0 Build 185 10/21/2015 SJ Standard Edition
 
 
@@ -65,7 +65,7 @@ agreement for further details.
 +-------------------------------------------------------------------------------------------+
 ; PowerPlay Power Analyzer Summary                                                          ;
 +----------------------------------------+--------------------------------------------------+
-; PowerPlay Power Analyzer Status        ; Successful - Tue Feb 06 12:26:12 2018            ;
+; PowerPlay Power Analyzer Status        ; Successful - Sun Mar 04 14:56:10 2018            ;
 ; Quartus Prime Version                  ; 15.1.0 Build 185 10/21/2015 SJ Standard Edition  ;
 ; Revision Name                          ; LogicalStep_Lab3_top                             ;
 ; Top-level Entity Name                  ; LogicalStep_Lab3_top                             ;
@@ -115,14 +115,14 @@ agreement for further details.
 ; pb[0]                 ; No valid clock domain found ;
 ; pb[1]                 ; No valid clock domain found ;
 ; pb[2]                 ; No valid clock domain found ;
-; sw[7]                 ; No valid clock domain found ;
-; sw[6]                 ; No valid clock domain found ;
+; sw[0]                 ; No valid clock domain found ;
+; sw[4]                 ; No valid clock domain found ;
+; sw[1]                 ; No valid clock domain found ;
+; sw[5]                 ; No valid clock domain found ;
 ; sw[2]                 ; No valid clock domain found ;
 ; sw[3]                 ; No valid clock domain found ;
-; sw[5]                 ; No valid clock domain found ;
-; sw[4]                 ; No valid clock domain found ;
-; sw[0]                 ; No valid clock domain found ;
-; sw[1]                 ; No valid clock domain found ;
+; sw[7]                 ; No valid clock domain found ;
+; sw[6]                 ; No valid clock domain found ;
 ; clkin_50              ; No valid clock domain found ;
 ; clkin_50~inputclkctrl ; No valid clock domain found ;
 +-----------------------+-----------------------------+
@@ -184,6 +184,7 @@ agreement for further details.
 ;     |SevenSegment:INST2             ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |LogicalStep_Lab3_top|SevenSegment:INST2             ;
 ;     |SevenSegment:INST3             ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |LogicalStep_Lab3_top|SevenSegment:INST3             ;
 ;     |segment7_mux:INST4             ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |LogicalStep_Lab3_top|segment7_mux:INST4             ;
+;     |EnergyControl:INST5            ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |LogicalStep_Lab3_top|EnergyControl:INST5            ;
 +-------------------------------------+--------------------------------------+---------------------------------+-----------------------------------+-----------------------------------+------------------------------------------------------+
 (1) Value in parentheses is the power consumed at that level of hierarchy. Value not in parentheses is the power consumed at that level of hierarchy plus the power consumed by all levels of hierarchy below it.
 
@@ -281,7 +282,7 @@ agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime PowerPlay Power Analyzer
     Info: Version 15.1.0 Build 185 10/21/2015 SJ Standard Edition
-    Info: Processing started: Tue Feb 06 12:26:09 2018
+    Info: Processing started: Sun Mar 04 14:56:08 2018
 Info: Command: quartus_pow --read_settings_files=off --write_settings_files=off LogicalStep_Lab3 -c LogicalStep_Lab3_top
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
@@ -299,8 +300,8 @@ Info (215049): Average toggle rate for this design is 0.000 millions of transiti
 Info (215031): Total thermal power estimate for the design is 159.79 mW
 Info: Quartus Prime PowerPlay Power Analyzer was successful. 0 errors, 4 warnings
     Info: Peak virtual memory: 854 megabytes
-    Info: Processing ended: Tue Feb 06 12:26:12 2018
-    Info: Elapsed time: 00:00:03
+    Info: Processing ended: Sun Mar 04 14:56:10 2018
+    Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 
 
